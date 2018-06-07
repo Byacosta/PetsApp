@@ -9,14 +9,26 @@ namespace PetsApp
 {
 	public partial class App : Application
 	{
-		public App ()
-		{
-			InitializeComponent();
+        public static string urlBd;
 
-			MainPage = new PetsApp.MainPage();
-		}
+        public App()
+        {
+            InitializeComponent();
 
-		protected override void OnStart ()
+            MainPage = new NavigationPage(new MainPage());
+        }
+
+        public App(string url)
+        {
+            InitializeComponent();
+
+            urlBd = url;
+
+            //MainPage = new App1.MainPage();
+            MainPage = new NavigationPage(new MainPage());
+        }
+
+        protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}

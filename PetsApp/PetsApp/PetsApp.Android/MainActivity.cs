@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using System.IO;
 
 namespace PetsApp.Droid
 {
@@ -20,7 +21,12 @@ namespace PetsApp.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
+
+            string name_file_db = "personas.sqlite";
+            string path_android = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            string path_db = Path.Combine(path_android, name_file_db);
+
+            LoadApplication(new App(path_db));
         }
     }
 }

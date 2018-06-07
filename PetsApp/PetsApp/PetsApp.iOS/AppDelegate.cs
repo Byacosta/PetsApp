@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using Foundation;
@@ -23,7 +24,13 @@ namespace PetsApp.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+
+            string name_file_db = "personas.sqlite";
+            string path_ios = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            string path_ios_final = Path.Combine(path_ios, "..", "Library");
+            string path_db = Path.Combine(path_ios_final, name_file_db);
+
+            LoadApplication(new App(path_db));
 
             return base.FinishedLaunching(app, options);
         }

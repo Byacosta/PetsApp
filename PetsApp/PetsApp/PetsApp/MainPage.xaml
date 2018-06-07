@@ -2,10 +2,35 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:PetsApp"
-             x:Class="PetsApp.MainPage">
+             x:Class="PetsApp.MainPage"
+             BackgroundColor="#148F77">
 
-	<Label Text="Welcome to Xamarin.Forms! Brian Yessid" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <StackLayout
+        Orientation="Vertical"
+        VerticalOptions="FillAndExpand"
+        HorizontalOptions="FillAndExpand"
+        BackgroundColor="#148F77">
+
+        <StackLayout 
+            Orientation="Vertical"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand">
+
+            <Label Text="Welcome To PetsApp" TextColor="Black" FontSize="Large" HorizontalOptions="FillAndExpand"/>
+            <Entry x:Name="entryUser" Placeholder="User" HorizontalOptions="FillAndExpand"/>
+            <Entry x:Name="entryPass" Placeholder="Password" IsPassword="True" HorizontalOptions="FillAndExpand"/>
+
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="Center"
+                Spacing="0">
+
+                <Button Text="Login" Clicked="ClickButtonSignIn" HorizontalOptions="FillAndExpand"/>
+                <Button Text="Register" Clicked="NextCreateAccount" HorizontalOptions="FillAndExpand"/>
+
+            </StackLayout>
+
+        </StackLayout>
+    </StackLayout>
 
 </ContentPage>
